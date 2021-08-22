@@ -8,7 +8,7 @@
 SELECT product_id, product_name, unit_price * units_in_stock 
 FROM products 
 ```
-![](images\Screenshot_1.png)
+![](images/Screenshot_1.png)
 
 ## DISTINCT
 
@@ -18,7 +18,7 @@ FROM products
 SELECT DISTINCT city, country
 FROM employees
 ```
-![](images\Screenshot_2.png)
+![](images/Screenshot_2.png)
 
 ## COUNT
 
@@ -30,7 +30,7 @@ FROM employees
 SELECT COUNT(DISTINCT country) 
 FROM employees
 ```
-![](images\Screenshot_3.png)
+![](images/Screenshot_3.png)
 
 ## WHERE
 
@@ -41,7 +41,7 @@ SELECT *
 FROM orders
 WHERE order_date > '1998-03-01'
 ```
-![](images\Screenshot_5.png)
+![](images/Screenshot_5.png)
 
 
 ## ORDER BY
@@ -54,7 +54,7 @@ SELECT DISTINCT country, city
 FROM customers
 ORDER BY country DESC, city ASC
 ```
-![](images\Screenshot_4.png)
+![](images/Screenshot_4.png)
 
 ## MIN, MAX, AVG
 
@@ -70,9 +70,9 @@ SELECT MAX(order_date)
 FROM orders
 WHERE ship_city = 'London'
 ```
-![](images\Screenshot_6.png)
+![](images/Screenshot_6.png)
 
-![](images\Screenshot_7.png)
+![](images/Screenshot_7.png)
 
 А также среднее значение непроданных товаров:
 ```sql
@@ -80,7 +80,7 @@ SELECT AVG(unit_price)
 FROM products
 WHERE discontinued <> 1
 ```
-![](images\Screenshot_8.png)
+![](images/Screenshot_8.png)
 
 Подсчитаем полное количество продаваемых продуктов, для этого используем **SUM**
 ```sql
@@ -88,7 +88,7 @@ SELECT SUM(units_in_stock)
 FROM products
 WHERE discontinued <> 1
 ```
-![](images\Screenshot_11.png)
+![](images/Screenshot_11.png)
 
 ## LIKE
 Это ключевое слово позволяет искать строки похожие на заданный шаблон
@@ -116,7 +116,7 @@ SELECT last_name, first_name
 FROM employees
 WHERE first_name LIKE '%n'
 ```
-![](images\Screenshot_9.png)
+![](images/Screenshot_9.png)
 
 ## GROUP BY
 Подсчитаем количесвто заказов и сгрупируем их по странам. Выведем на экран только первые 10 стран.
@@ -128,7 +128,7 @@ GROUP BY ship_country
 ORDER BY COUNT(*) DESC
 LIMIT 10
 ```
-![](images\Screenshot_12.png)
+![](images/Screenshot_12.png)
 
 Подсчитаем сумму всех товаров, сгруперованных по их id.
 ```sql
@@ -138,7 +138,7 @@ GROUP BY category_id
 ORDER BY SUM(units_in_stock) DESC
 LIMIT 5
 ```
-![](images\Screenshot_13.png)
+![](images/Screenshot_13.png)
 
 ## HAVING
 Служит вторичным фильтром.
@@ -155,7 +155,7 @@ HAVING SUM(unit_price * units_in_stock) > 5000
 ORDER BY SUM(unit_price * units_in_stock) DESC
 ```
 
-![](images\Screenshot_14.png)
+![](images/Screenshot_14.png)
 
 ## UNION, INTERSECT, EXCEPT
 Эти ключевые слова помогают работать с множествами.
@@ -169,7 +169,7 @@ UNION
 SELECT country
 FROM employees
 ```
-![](images\Screenshot_15.png)
+![](images/Screenshot_15.png)
 
 Есть еще ключевое слово **UNION ALL**, которое позволяет отображать дубликаты.
 ```sql
@@ -180,7 +180,7 @@ SELECT country
 FROM employees
 ORDER BY country
 ```
-![](images\Screenshot_16.png)
+![](images/Screenshot_16.png)
 
 Пересечение двох множеств. Выводим список стран, где есть одновременно и работники, и заказчики. 
 
@@ -192,7 +192,7 @@ SELECT country
 FROM employees
 ORDER BY country
 ```
-![](images\Screenshot_17.png)
+![](images/Screenshot_17.png)
 
 Выведем на экран список стран где проживают клиенты, но не проживают работники.
 ```sql
@@ -204,6 +204,6 @@ FROM employees
 ORDER BY country
 LIMIT 10
 ```
-![](images\Screenshot_18.png)
+![](images/Screenshot_18.png)
 
 Аналогично с **UNION** можно отобразить дубликаты.
